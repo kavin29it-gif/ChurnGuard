@@ -1,32 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { apiClient } from '../api/client';
-import type { HealthResponse } from '../types';
 import { ArrowRight, ShieldCheck, Users, Sparkles } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
-  const [health, setHealth] = useState<HealthResponse | null>(null);
-  const [loadingHealth, setLoadingHealth] = useState(true);
-
-  useEffect(() => {
-    apiClient
-      .getHealth()
-      .then((data) => setHealth(data))
-      .catch(() => setHealth({ status: 'offline', model_loaded: false }))
-      .finally(() => setLoadingHealth(false));
-  }, []);
-
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden mb-12 border border-slate-700/60">
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-xs font-semibold text-blue-300 mb-6 backdrop-blur-sm shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            Random Forest Classifier • 400 Estimators • Scikit-Learn 1.7.2
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-white mb-5">
             Customer Churn <br />
             <span className="bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-200 bg-clip-text text-transparent">
@@ -44,32 +26,12 @@ export const HomePage: React.FC = () => {
             <Link
               to="/predict"
               id="cta-predict-churn"
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-600/40 border border-blue-400/50 transition-all hover:-translate-y-0.5 active:translate-y-0 text-base cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-600/40 border border-blue-400/50 transition-all hover:-translate-y-0.5 active:translate-y-0 text-base cursor-pointer"
             >
               <Sparkles className="w-5 h-5" />
               Predict Churn Now
               <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
-
-            {/* Model Status Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl bg-slate-800/90 border border-slate-600 text-xs font-medium text-slate-200 shadow-sm">
-              <span
-                className={`w-2.5 h-2.5 rounded-full ${
-                  loadingHealth
-                    ? 'bg-amber-400 animate-pulse'
-                    : health?.model_loaded
-                    ? 'bg-emerald-400'
-                    : 'bg-rose-400'
-                }`}
-              />
-              <span>
-                {loadingHealth
-                  ? 'Connecting to backend...'
-                  : health?.model_loaded
-                  ? `Model Active (v${health.model_version || '1.7.2'})`
-                  : 'Service Offline'}
-              </span>
-            </div>
           </div>
         </div>
       </div>
