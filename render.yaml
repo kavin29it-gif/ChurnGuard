@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: churnguard-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: ARTIFACT_DIR
+        value: "./artifacts"
