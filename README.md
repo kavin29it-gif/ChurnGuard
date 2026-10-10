@@ -167,7 +167,7 @@ All 17 test cases test:
   - `ALLOWED_ORIGINS`: Set to your deployed frontend domain (e.g., `https://churn-webapp.vercel.app`)
   - `ARTIFACT_DIR`: `./artifacts`
 
-### Frontend (Vercel / Netlify)
+### Frontend (Vercel )
 - **Framework Preset:** Vite
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist`
