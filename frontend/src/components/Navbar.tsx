@@ -16,8 +16,8 @@ export const Navbar: React.FC = () => {
             <span className="font-extrabold text-slate-900 tracking-tight text-lg">
               ChurnGuard
             </span>
-            <span className="hidden sm:inline-block ml-2 text-xs font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/80">
-              Machine Learning
+            <span className="hidden sm:inline-block ml-2 text-xs font-medium text-slate-400 border-l border-slate-200 pl-2">
+              Smart Retention Platform
             </span>
           </div>
         </Link>
