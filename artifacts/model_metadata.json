@@ -1,0 +1,119 @@
+{
+  "model": "RandomForestClassifier inside sklearn Pipeline (ColumnTransformer passthrough + RF)",
+  "trained_on": "80% stratified train split of de-duplicated data",
+  "sklearn_version": "1.7.2",
+  "python_version": "3.13.9",
+  "random_state": 42,
+  "features": [
+    "call_failure",
+    "complains",
+    "subscription_length",
+    "charge_amount",
+    "seconds_of_use",
+    "frequency_of_use",
+    "frequency_of_sms",
+    "distinct_called_numbers",
+    "age_group",
+    "tariff_plan"
+  ],
+  "target": "churn",
+  "excluded_columns": {
+    "age": "duplicate of age_group",
+    "customer_value": "derived; not a realistic input",
+    "status": "suspected leakage (assumption)"
+  },
+  "best_params": {
+    "rf__n_estimators": 400,
+    "rf__min_samples_split": 2,
+    "rf__min_samples_leaf": 2,
+    "rf__max_features": "sqrt",
+    "rf__max_depth": 16,
+    "rf__class_weight": null
+  },
+  "rows_raw": 3150,
+  "rows_after_dedup": 2850,
+  "duplicates_removed": 300,
+  "class_threshold": 0.5,
+  "risk_bands": {
+    "low_max": 0.3,
+    "medium_max": 0.6
+  },
+  "test_metrics": {
+    "accuracy": 0.9403508771929825,
+    "precision": 0.8767123287671232,
+    "recall": 0.7191011235955056,
+    "f1": 0.7901234567901234,
+    "roc_auc": 0.9808101100235931
+  },
+  "cv_metrics_train": {
+    "roc_auc": {
+      "mean": 0.9804394952681154,
+      "std": 0.006343908747761379
+    },
+    "recall": {
+      "mean": 0.7169405320813771,
+      "std": 0.0285205632459127
+    },
+    "precision": {
+      "mean": 0.8711019975609731,
+      "std": 0.039135141836353436
+    },
+    "f1": {
+      "mean": 0.786361149634249,
+      "std": 0.031162117000073982
+    },
+    "accuracy": {
+      "mean": 0.9390350877192983,
+      "std": 0.008705891772490901
+    }
+  },
+  "feature_ranges_observed": {
+    "call_failure": [
+      0.0,
+      36.0
+    ],
+    "complains": [
+      0.0,
+      1.0
+    ],
+    "subscription_length": [
+      3.0,
+      47.0
+    ],
+    "charge_amount": [
+      0.0,
+      10.0
+    ],
+    "seconds_of_use": [
+      0.0,
+      17090.0
+    ],
+    "frequency_of_use": [
+      0.0,
+      255.0
+    ],
+    "frequency_of_sms": [
+      0.0,
+      522.0
+    ],
+    "distinct_called_numbers": [
+      0.0,
+      97.0
+    ],
+    "age_group": [
+      1.0,
+      5.0
+    ],
+    "tariff_plan": [
+      1.0,
+      2.0
+    ]
+  },
+  "top_features_impurity": [
+    "complains",
+    "seconds_of_use",
+    "frequency_of_use",
+    "subscription_length",
+    "call_failure"
+  ]
+}

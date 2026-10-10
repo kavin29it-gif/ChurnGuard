@@ -1,0 +1,42 @@
+{
+  "call_failure": {
+    "typical_retained": 6,
+    "typical_churned": 6
+  },
+  "complains": {
+    "typical_retained": 0,
+    "typical_churned": 0
+  },
+  "subscription_length": {
+    "typical_retained": 35,
+    "typical_churned": 35
+  },
+  "charge_amount": {
+    "typical_retained": 1,
+    "typical_churned": 0
+  },
+  "seconds_of_use": {
+    "typical_retained": 3596.5,
+    "typical_churned": 1256.5
+  },
+  "frequency_of_use": {
+    "typical_retained": 64,
+    "typical_churned": 29
+  },
+  "frequency_of_sms": {
+    "typical_retained": 26,
+    "typical_churned": 11
+  },
+  "distinct_called_numbers": {
+    "typical_retained": 24,
+    "typical_churned": 11
+  },
+  "age_group": {
+    "typical_retained": 3,
+    "typical_churned": 3
+  },
+  "tariff_plan": {
+    "typical_retained": 1,
+    "typical_churned": 1
+  }
+}
